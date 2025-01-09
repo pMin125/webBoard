@@ -5,3 +5,5 @@ pluginManagement {
 	}
 }
 rootProject.name = 'backend'
+include 'locust'
+

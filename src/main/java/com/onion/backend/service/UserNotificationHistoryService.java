@@ -46,7 +46,6 @@ public class UserNotificationHistoryService {
     }
 
     public void insertCommentNotification(Comment comment, Long userId) {
-        System.out.println("applewhy");
         UserNotificationHistory history = new UserNotificationHistory();
         history.setTitle("댓글이 작성되었습니다.");
         history.setContent(comment.getContent());

@@ -76,7 +76,7 @@ public class ArticleService {
         article.setTitle(dto.getTitle());
         article.setContent(dto.getContent());
         articleRepository.save(article);
-        //this.indexArticle(article);
+        this.indexArticle(article);
         WriteArticle articleNotification = new WriteArticle();
         articleNotification.setArticleId(article.getId());
         articleNotification.setUserId(author.get().getId());

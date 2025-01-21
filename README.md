@@ -8,7 +8,7 @@ Mysql,mongoDB,RabbitMq,Docker,elasticSearch,Redis
 JPA
 AWS(EC2)
 
---기능
+## 기능
 1. 회원가입 및 로그인
    * 로그인시 JWT토큰(Access Token, Refresh Token) 방식 사용
 2. 게시글 및 댓글 CRUD
@@ -32,5 +32,5 @@ AWS(EC2)
 5. 댓글 알림:
 댓글 작성자, 게시글 작성자, 해당 게시글의 모든 댓글 작성자에게 RabbitMQ를 통해 알림 전송.
 
---ERD
+## ERD
 <img width="291" alt="erd" src="https://github.com/user-attachments/assets/3a3cd0bb-0c43-4b06-93f2-a9bcd28aaac9" />

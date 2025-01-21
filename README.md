@@ -2,11 +2,16 @@
  성능 최적화를 위해 Docker, Redis, MongoDB, ElasticSearch, RabbitMQ 기술 스택을 활용하였습니다.
  
 ## 개발 환경
-Spring Boot 3.2.7 (Gradle)
-Java 11
-Mysql,mongoDB,RabbitMq,Docker,elasticSearch,Redis
-JPA
-AWS(EC2)
+- Spring Boot 3.2.7 (Gradle)
+- Java 11
+- MySQL
+- MongoDB
+- RabbitMQ
+- Docker
+- Elasticsearch
+- Redis
+- JPA
+- AWS(EC2)
 
 ## 기능
 1. 회원가입 및 로그인

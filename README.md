@@ -11,6 +11,7 @@
 - Elasticsearch
 - Redis
 - JPA
+- sWAGGER
 - AWS(EC2)
 
 ## 기능
@@ -39,3 +40,10 @@
 
 ## ERD
 <img width="291" alt="erd" src="https://github.com/user-attachments/assets/3a3cd0bb-0c43-4b06-93f2-a9bcd28aaac9" />
+
+## rabbitmq 테스트
+<img width="1259" alt="rabbitmq테스트" src="https://github.com/user-attachments/assets/58a4ab65-05d3-4d0e-8b37-39e31911a7b0" />
+
+## 부하테스트
+<img width="1235" alt="부하테스트" src="https://github.com/user-attachments/assets/fcb2f495-7496-40d3-903f-67b7202b75e2" />
+

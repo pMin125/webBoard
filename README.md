@@ -47,3 +47,7 @@
 ## 부하테스트
 <img width="1235" alt="부하테스트" src="https://github.com/user-attachments/assets/fcb2f495-7496-40d3-903f-67b7202b75e2" />
 
+## 트러블슈팅 
+RabbitMQ의 Exchange, Queue 바인딩 설정이 잘못되었는지 수신되지않음
+-> exchange와 Queue 사이의 바인딩이 제대로 구성되지 않아, 지정된 라우팅키에 해당하는 메시지가 큐로 전달되지 않음.
+--> exchange와 Queue 사이의 바인딩을 맞춰줬더니 올바른 수신이 됨

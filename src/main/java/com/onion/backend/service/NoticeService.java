@@ -8,6 +8,7 @@ import com.onion.backend.exception.ResourceNotFoundException;
 import com.onion.backend.repository.NoticeRepository;
 import com.onion.backend.repository.UserNotificationHistoryRepository;
 import com.onion.backend.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @Service
 public class NoticeService {
     private final NoticeRepository noticeRepository;
@@ -23,12 +25,6 @@ public class NoticeService {
     private final UserRepository userRepository;
 
     private final UserNotificationHistoryRepository userNotificationHistoryRepository;
-
-    public NoticeService(NoticeRepository noticeRepository, UserRepository userRepository, UserNotificationHistoryRepository userNotificationHistoryRepository) {
-        this.noticeRepository = noticeRepository;
-        this.userRepository = userRepository;
-        this.userNotificationHistoryRepository = userNotificationHistoryRepository;
-    }
 
     public Notice writeNotice(WriteNotice dto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

@@ -7,11 +7,13 @@ import com.onion.backend.pojo.WriteArticle;
 import com.onion.backend.pojo.WriteComment;
 import com.onion.backend.repository.ArticleRepository;
 import com.onion.backend.repository.CommentRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@RequiredArgsConstructor
 @Service
 public class RabbitMQReceiver {
     ArticleRepository articleRepository;
@@ -19,14 +21,6 @@ public class RabbitMQReceiver {
     UserNotificationHistoryService userNotificationHistoryService;
 
     RabbitMQSender rabbitMQSender;
-
-    public RabbitMQReceiver(ArticleRepository articleRepository, CommentRepository commentRepository, RabbitMQSender rabbitMQSender,
-                            UserNotificationHistoryService userNotificationHistoryService) {
-        this.articleRepository = articleRepository;
-        this.commentRepository = commentRepository;
-        this.rabbitMQSender = rabbitMQSender;
-        this.userNotificationHistoryService = userNotificationHistoryService;
-    }
 
     @RabbitListener(queues = "send_notification.email")
     public void emailReceive(String message) {

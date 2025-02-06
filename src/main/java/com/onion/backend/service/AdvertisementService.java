@@ -5,6 +5,7 @@ import com.onion.backend.dto.AdvertisementDto;
 import com.onion.backend.entity.*;
 import com.onion.backend.repository.*;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
@@ -21,6 +22,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+@RequiredArgsConstructor
 @Service
 public class AdvertisementService {
     private static final String REDIS_KEY = "ad:";
@@ -38,20 +40,6 @@ public class AdvertisementService {
     private RedisTemplate<String, Object> redisTemplate;
 
     private MongoTemplate mongoTemplate;
-
-    @Autowired
-    public AdvertisementService(AdvertisementRepository advertisementRepository, RedisTemplate<String, Object> redisTemplate,
-                                AdViewHistoryRepository adViewHistoryRepository, AdClickHistoryRepository adClickHistoryRepository,
-                                MongoTemplate mongoTemplate,
-                                AdViewStatRepository adViewStatRepository, AdClickStatRepository adClickStatRepository) {
-        this.advertisementRepository = advertisementRepository;
-        this.redisTemplate = redisTemplate;
-        this.adViewHistoryRepository = adViewHistoryRepository;
-        this.adClickHistoryRepository = adClickHistoryRepository;
-        this.mongoTemplate = mongoTemplate;
-        this.adViewStatRepository = adViewStatRepository;
-        this.adClickStatRepository = adClickStatRepository;
-    }
 
     @Transactional
     public Advertisement writeAd(AdvertisementDto advertisementDto) {

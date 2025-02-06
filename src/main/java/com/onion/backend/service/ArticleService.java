@@ -13,6 +13,7 @@ import com.onion.backend.repository.ArticleRepository;
 import com.onion.backend.repository.BoardRepository;
 import com.onion.backend.repository.UserRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,6 +31,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
+@RequiredArgsConstructor
 @Service
 public class ArticleService {
     private final BoardRepository boardRepository;
@@ -43,17 +45,6 @@ public class ArticleService {
 
     private final RabbitMQSender rabbitMQSender;
 
-    @Autowired
-    public ArticleService(BoardRepository boardRepository, ArticleRepository articleRepository, UserRepository userRepository,
-                          ElasticSearchService elasticSearchService, ObjectMapper objectMapper,
-                          RabbitMQSender rabbitMQSender) {
-        this.boardRepository = boardRepository;
-        this.articleRepository = articleRepository;
-        this.userRepository = userRepository;
-        this.elasticSearchService = elasticSearchService;
-        this.objectMapper = objectMapper;
-        this.rabbitMQSender = rabbitMQSender;
-    }
 
     @Transactional
     public Article writeArticle(Long boardId, WriteArticleDto dto) throws JsonProcessingException {

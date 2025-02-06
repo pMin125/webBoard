@@ -16,6 +16,7 @@ import com.onion.backend.repository.CommentRepository;
 import com.onion.backend.repository.UserRepository;
 import com.onion.backend.task.DailyHotArticleTasks;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
@@ -35,6 +36,7 @@ import java.util.concurrent.ExecutionException;
 
 import static com.onion.backend.task.DailyHotArticleTasks.YESTERDAY_REDIS_KEY;
 
+@RequiredArgsConstructor
 @Service
 public class CommentService {
     private final BoardRepository boardRepository;
@@ -51,20 +53,6 @@ public class CommentService {
     private final RabbitMQSender rabbitMQSender;
 
     private RedisTemplate<String, Object> redisTemplate;
-
-    @Autowired
-    public CommentService(BoardRepository boardRepository, ArticleRepository articleRepository, UserRepository userRepository, CommentRepository commentRepository,
-                          ElasticSearchService elasticSearchService, ObjectMapper objectMapper, RabbitMQSender rabbitMQSender,
-                          RedisTemplate<String, Object> redisTemplate) {
-        this.boardRepository = boardRepository;
-        this.articleRepository = articleRepository;
-        this.userRepository = userRepository;
-        this.commentRepository = commentRepository;
-        this.elasticSearchService = elasticSearchService;
-        this.objectMapper = objectMapper;
-        this.rabbitMQSender = rabbitMQSender;
-        this.redisTemplate = redisTemplate;
-    }
 
     @Transactional
     public Comment writeComment(Long boardId, Long articleId, WriteCommentDto dto) {
